@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.topbar {
+    justify-self: top;
+    flex-direction: row;
+}
+
+.feed {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
