@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NisFit</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a class="logo" href="profile.html">NisFit</a></li>
+          <li><a class="link" href="profile.html">Profile</a></li>
+          <li><a class="link" href="profile.html">Feed</a></li>
+          <li><a class="link" href="profile.html">Messages</a></li>
+          <li><a class="link" href="profile.html">Bookmarks</a></li>
+      </ul>
+    </nav>
 
-    <nav id="topbar"> 
-        <button onclick="revealSidebar()"> Workout!</button>
-        <header id="logo"> NisFit </header>
-        <a class="navButton" href="profile.html">Profile</a>
-        <a class="navButton" href="profile.html">Feed</a>
-        <a class="navButton" href="profile.html">Messages</a>
-        <a class="navButton" href="profile.html">Bookmarks</a>
-    </nav>  
+   <nav class="sidebar">
+   <div class="sidebar-top-wrap">
+    <div class="sidebar-top">
+        <a href="#" class="logo-wrap">
+            <img src="" alt="logo" class="logos-small">
+            <span class="hide company-name">NisFit</span>
+        </a>
+    </div>
+    <button class="expand-btn" type="button">
+    </button>
+   </div>
+   <div class="search-wrap">
+<input type="text">
+   </div>
+   <div class="sidebar-links">
+    <ul>
+        <li>
+            <a href="#dashboard" title="dashboard" class="tooltip">
+                <span class="link hide">Dashboard</span>
+                <span class="tooltip_content">Dashboard</span>
+            </a>
+        </li>
+        <!-- More links-->
+    </ul>
+   </div>
+   </nav>
 
-    <div id="container">
-        <div id="sidebar"  style="display: none;"  >
-            <a href="profile.html">Workout Builder</a>
-            <a href="profile.html">Challenges</a>
-        </div>
-
-        <div id="feed">Feed</div>
+      <div id="feed">Feed</div>
     </div>
 
     <script src="homeCode.js"></script>
-</body>
+  </body>
 </html>
