@@ -1,47 +1,22 @@
 package main
 
 import (
-    "golang.org/x/crypto/bcrypt"
 	"net/http"
-	"github.com/labstack/echo/v4"
-	"strings"
+	"github.com/gin-gonic/gin"
+	"errors"
 )
 
-type User struct {
-	Username string
-	Password string
+type workout struct {
+	Title    string  `json:"title"`
+	Creator   string  `json:"author"`
+	Description   string   `json:"description"`
+    Duration      string   `json:"duration"` 
+    Difficulty    string   `json:"difficulty"`
+    Equipment     []string `json:"equipment"`
 }
 
-var users = map[string]User{
-	"Nisse": {Username: "Nisse", Password: "Nisse900"},
+var workout = []workout{
+	{Title:"1", Creator: "In Search of Lost Time", Description: "Marcel Poust", Duration: 2, Difficulty:"", Equipment},
+	{Title:"2", Creator: "The Great Gatsby", Description: "F. Scott Fitzgerald", Duration: 5, Difficulty:"", Equipment,
+	{Title:"3", Creator: "War and Peace", Description: "Leo Tolstay", Duration: "", Difficulty:"", Equipment},
 }
-
-func main() {
-	e := echo.New()
-
-	e.GET("/login", func(c echo.Context) error {
-		return c.File("login.html")
-	})
-
-	e.POST("/login", func(c echo.Context) error {
-		username := c.FormValue("username")
-		password := c.FormValue("password")
-
-enteredUsernameLower := strings.ToLower(username)
-
-user, ok := users[enteredUsernameLower]
-if !ok {
-    return c.String(http.StatusUnauthorized, "Invalid log-in details")
-}
-
-	
-	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
-	if err != nil {
-		return c.String(http.StatusUnauthorized, "Invalid log-in details")
-	}
-	return c.String(http.StatusOK, "Login successful")
-})
-e.Start(":8080")
-}
-
-	
